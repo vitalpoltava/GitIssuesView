@@ -1,0 +1,233 @@
+/* Mixin */
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+html, body, #main, .container {
+  position: relative;
+  height: 100%;
+}
+
+/* Main Content */
+
+header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #d3d3d3;
+    border-bottom: 1px solid #ffffff;
+    .header {
+        font: 1.5em bold "Helvetica";
+        color: #ffffff;
+        text-shadow: 1px 1px 2px black;
+        .header_part {
+            color: deepskyblue;
+        }
+    }
+}
+
+.main_line {
+    border: 1px solid lightgray;
+    position: relative;
+    height: 100%;
+    .left, .right {
+        padding-top: 6em;
+        position: relative;
+        height: 100%;
+    }
+    .right {
+        background-color: white;
+        .pagination_number_row {
+            text-align: right;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    }
+    .left {
+        background-color: honeydew;
+        border-right: 1px solid lightgray;
+        overflow-y: auto;
+        .input_field {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* update content layout for mobile screens */
+@media (max-width: 768px) {
+    .main_line {
+        .right {
+            padding-top: 2em;
+            height: auto;
+        }
+        .left {
+            padding-top: 7em;
+            padding-bottom: 2em;
+            border-right: none;
+            border-bottom: 1px solid lightgray;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+  .main_line {
+      .right {
+          height: auto;
+          padding-top: 2em;
+      }
+      .left {
+          border-right: none;
+          border-bottom: 1px solid lightgray;
+          padding-bottom: 2em;
+          height: auto;
+      }
+  }
+}
+
+/* Table styles */
+
+.issues_rows {
+    position: relative;
+    height: 85%;
+    overflow: auto;
+}
+
+.issues_table_header_row {
+    margin: 0;
+    .issues_table_header_cell {
+        padding: 15px;
+        color: #ffffff;
+        background-color: #2b81af;
+    }
+    .issues_table_header_cell:last-of-type {
+        text-align: center;
+    }
+}
+
+.issue_row_header {
+    margin: 0;
+    .issue_row_cell {
+        padding: 10px 15px;
+    }
+    .date_field {
+        text-align: right;
+    }
+}
+
+.issue_row_header:nth-of-type(even) {
+    background-color: #d3d3d3;
+}
+
+.issue_row_header:hover {
+    background-color: lemonchiffon;
+}
+
+.empty_issues {
+    display: inline-block;
+    padding-top: 10px;
+    font-weight: bold;
+    color: #a9a9a9;
+}
+
+.error {
+    display: none;
+    border: 2px solid white;
+    background-color: crimson;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    .border-radius(6px);
+}
+
+.disabled {
+    padding-right: 20px;
+    background: data-uri('images/indicator.gif') no-repeat 100% 50%;
+}
+
+/* Paging view styles */
+.paging_wrapper {
+    margin-bottom: 5px;
+    margin-top: -20px;
+    .page_number {
+        font-weight: bold;
+    }
+    .go_prev, .go_next {
+        cursor: pointer;
+        color: #0000ff;
+        border-bottom: 1px dotted #0000ff;
+    }
+    .go_prev {
+        display: inline-block;
+        margin:  0 5px 0 15px;
+    }
+    .go_next {
+        display: inline-block;
+    }
+}
+
+/* Form styles */
+
+.stat_view {
+    .input_field {
+        background-color: #ffffff;
+        background-image: none;
+    }
+    .input_field.loading_input {
+        background: data-uri('images/indicator.gif') no-repeat white 100% 50%;
+    }
+}
+
+/* Typeahead.js */
+.twitter-typeahead {
+  width: 100%;
+  vertical-align: baseline;
+}
+
+.tt-query {
+  margin: 0 !important;
+}
+
+.tt-dropdown-menu {
+  width: 100%;
+  text-align: left;
+  max-height: 350px;
+  overflow-y: auto;
+  margin-top: -5px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  .border-radius(8px);
+  .tt-empty-template {
+    margin: 0 5px;
+  }
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  line-height: 1.5em;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.oTagsField input {
+  margin: 0;
+}
+
+// --- Custom styles ---
+.tt-default-input {
+  vertical-align: top;
+  background-color: transparent;
+}
